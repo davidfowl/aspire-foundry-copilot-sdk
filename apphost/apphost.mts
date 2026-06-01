@@ -11,10 +11,6 @@ const aca = await builder.addAzureContainerAppEnvironment('aca');
 
 const hostedAgent = await builder
     .addNodeApp('agent-ha', '../api', 'src/server.js')
-    .withDockerfileBaseImage({
-        buildImage: 'node:22.20.0-bookworm',
-        runtimeImage: 'node:22.20.0-bookworm'
-    })
     .withHttpEndpoint({ env: 'PORT' })
     .withExternalHttpEndpoints()
     .withHttpHealthCheck({ path: '/readiness' })
