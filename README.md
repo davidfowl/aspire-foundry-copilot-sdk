@@ -19,6 +19,27 @@ The Aspire AppHost wires together:
 - [Aspire CLI](https://aspire.dev/reference/cli/overview/) 13.4
 - Azure credentials available to `DefaultAzureCredential` with access to Azure AI Foundry, for example through `az login`
 
+Install the Aspire CLI with the installer:
+
+```bash
+curl -sSL https://aspire.dev/install.sh | bash
+```
+
+Or, if you already have the .NET 10 SDK installed, install it as a .NET tool:
+
+```bash
+dotnet tool install -g Aspire.Cli
+```
+
+Check that the required tools are available:
+
+```bash
+dotnet --version
+node --version
+aspire --version
+az account show
+```
+
 ## Run locally
 
 Start the distributed app from the repository root:
@@ -28,6 +49,8 @@ aspire start
 ```
 
 Open the Aspire dashboard URL printed by the CLI, then launch the `agentweb` endpoint. The UI creates an HttpOnly browser identity cookie, keeps the user-visible transcript in `localStorage`, and asks `apiservice` to invoke the Foundry hosted agent.
+
+If Azure authentication is missing or expired, run `az login` and start the app again.
 
 ## How requests flow
 
@@ -56,4 +79,12 @@ Deploy the app from the repository root:
 
 ```bash
 aspire deploy
+```
+
+The Aspire CLI prompts for the required Azure deployment settings, provisions the configured Foundry and Azure Container Apps resources, and prints the deployed endpoints when deployment completes.
+
+To remove the deployed Azure resources later:
+
+```bash
+aspire destroy
 ```
