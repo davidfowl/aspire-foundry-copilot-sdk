@@ -6,7 +6,6 @@
   "sdk": {
     "version": "13.4.0"
   },
-  "channel": "staging",
   "profiles": {
     "https": {
       "applicationUrl": "https://localhost:17153;http://localhost:15227",
@@ -15,11 +14,10 @@
         "ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL": "https://localhost:22023"
       }
     }
-
   },
   "packages": {
     "Aspire.Hosting.JavaScript": "13.4.0",
-    "Aspire.Hosting.Foundry": "13.4.0-preview.1.26281.15",
+    "Aspire.Hosting.Foundry": "13.4.0-preview.1.26281.18",
     "Aspire.Hosting.Azure.AppService": "13.4.0",
     "Aspire.Hosting.Azure.AppContainers": "13.4.0"
   }
